@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import {
+    ArrowLeftRight,
     ArrowRight,
     BarChart3,
     Bell,
@@ -11,7 +11,6 @@ import {
     Globe2,
     LineChart,
     Link2,
-    Mail,
     Newspaper,
     PieChart,
     Sparkles,
@@ -22,8 +21,16 @@ import {
     Zap,
 } from "lucide-react";
 import { auth } from "@/lib/auth/server";
+import { SignalDeck } from "@/components/marketing/signal-deck";
+import { ConnectBroker } from "@/components/marketing/connect-broker";
 
 const FEATURES = [
+    {
+        icon: ArrowLeftRight,
+        title: "Swipe-to-trade signals",
+        description:
+            "AI surfaces a ranked buy idea. Like the thesis? Swipe right to buy. Not convinced? Swipe left to skip and move to the next signal.",
+    },
     {
         icon: LineChart,
         title: "Real-time market data",
@@ -92,16 +99,16 @@ const STEPS = [
         description: "Sign up in under a minute — no credit card, no commitments, just access.",
     },
     {
-        title: "Connect your brokerages",
-        description: "Link your brokerage accounts via secure OAuth so Signalist can unify your portfolio.",
+        title: "Connect your brokerage",
+        description: "Link an account via secure OAuth. Trading stays locked until you do.",
     },
     {
-        title: "Build your watchlist & set alerts",
-        description: "Add tickers, set price thresholds, and let AI surface the news and sentiment that matters.",
+        title: "Swipe through AI signals",
+        description: "Right to buy the idea, left to skip it. Each signal arrives with a thesis and confidence score.",
     },
     {
-        title: "Trade with intelligence",
-        description: "Get AI-powered analysis, sentiment scores, and real-time alerts to make informed decisions.",
+        title: "Trade the ones you like",
+        description: "Your buy swipes become orders in your connected account — instantly or queued.",
     },
 ];
 
@@ -132,20 +139,24 @@ const TESTIMONIALS = [
 
 const FAQS = [
     {
+        q: "How does swipe-to-trade work?",
+        a: "Each AI signal arrives as a card with a thesis, catalysts, and a confidence score. Swipe right to buy the idea, swipe left to skip it. If no brokerage is connected, your right swipes are saved and can be executed after you connect.",
+    },
+    {
+        q: "When does trading get enabled?",
+        a: "Trading is disabled by default. It unlocks only after you connect a brokerage account and turn trading on. You can pause it at any time, and buy swipes made while paused are queued instead of executed.",
+    },
+    {
         q: "Is Signalist really free?",
-        a: "Yes. The core experience — real-time quotes, watchlists, price alerts, AI summaries, and news — is free while we're in beta. Premium add-ons are coming soon.",
+        a: "Yes. The core experience — signals, real-time quotes, watchlists, AI summaries, and the swipe demo — is free while we're in beta. Premium add-ons are coming soon.",
     },
     {
         q: "How does brokerage integration work?",
-        a: "We use secure OAuth flows to connect to your brokerage. Signalist never sees your login credentials — we only access read-only portfolio data to display your holdings and trades.",
+        a: "We use secure OAuth flows to connect to your brokerage. Signalist never sees your login credentials — you authorize read access and, when trading is enabled, order placement.",
     },
     {
         q: "Does Signalist give investment advice?",
-        a: "No. We surface data, news, AI-powered analysis, and sentiment scores to help you research faster. Nothing on Signalist is a recommendation to buy or sell any security.",
-    },
-    {
-        q: "How does the sentiment AI work?",
-        a: "We aggregate news from trusted sources and apply machine-learning sentiment scoring to help you understand the narratives driving price movements. Scores are estimates, not guarantees.",
+        a: "No. We surface data, news, AI-powered analysis, and confidence scores to help you research faster. Swiping right is your decision, not a recommendation from us.",
     },
     {
         q: "Can I track assets outside the US?",
@@ -166,67 +177,67 @@ export default async function HomePage() {
                 <div className="marketing-hero-glow" aria-hidden />
                 <div className="marketing-hero-glow-teal" aria-hidden />
 
-                <div className="container relative pt-20 pb-24 md:pt-28 md:pb-32">
-                    <div className="max-w-3xl">
-                        <span className="marketing-eyebrow">
-                            <Sparkles className="h-3.5 w-3.5" />
-                            Now in public beta
-                        </span>
-                        <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-100">
-                            The market, decoded by{" "}
-                            <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                                AI.
+                <div className="container relative pt-16 pb-20 md:pt-24 md:pb-28">
+                    <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+                        <div className="max-w-2xl">
+                            <span className="marketing-eyebrow">
+                                <Sparkles className="h-3.5 w-3.5" />
+                                Swipe signals · now in public beta
                             </span>
-                        </h1>
-                        <p className="mt-5 text-base md:text-lg text-gray-400 max-w-2xl">
-                            Track stocks with AI-powered sentiment analysis, connect multiple brokerage
-                            accounts to monitor your portfolio in one place, and get intelligent
-                            investment recommendations — all in one beautifully focused platform built
-                            for the next generation of investors.
-                        </p>
+                            <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-100">
+                                Like the idea?{" "}
+                                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                                    Swipe right to buy.
+                                </span>
+                            </h1>
+                            <p className="mt-5 text-base md:text-lg text-gray-400 max-w-2xl">
+                                Signalist turns AI research into a deck of trade ideas. NVIDIA riding
+                                the AI boom? Swipe right to buy the signal. Not your thesis? Swipe
+                                left to skip. Connect your brokerage at the bottom and your right
+                                swipes become real orders.
+                            </p>
 
-                        <div className="mt-8 flex flex-col sm:flex-row gap-3">
-                            <Link href={ctaHref} className="marketing-cta">
-                                {ctaLabel}
-                                <ArrowRight className="h-4 w-4" />
-                            </Link>
-                            <Link href="#features" className="marketing-ghost">
-                                Explore features
-                                <ChevronRight className="h-4 w-4" />
-                            </Link>
+                            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                                <Link href={ctaHref} className="marketing-cta">
+                                    {ctaLabel}
+                                    <ArrowRight className="h-4 w-4" />
+                                </Link>
+                                <Link href="#how-it-works" className="marketing-ghost">
+                                    How it works
+                                    <ChevronRight className="h-4 w-4" />
+                                </Link>
+                            </div>
+
+                            <div className="mt-8 flex flex-wrap items-center gap-3">
+                                <span className="marketing-pill">
+                                    <ArrowLeftRight className="h-3.5 w-3.5 text-yellow-500" />
+                                    Right to buy · left to skip
+                                </span>
+                                <span className="marketing-pill">
+                                    <Brain className="h-3.5 w-3.5 text-teal-400" />
+                                    AI confidence scores
+                                </span>
+                                <span className="marketing-pill">
+                                    <Link2 className="h-3.5 w-3.5 text-orange-500" />
+                                    Trading enabled on connect
+                                </span>
+                                <span className="marketing-pill">
+                                    <Zap className="h-3.5 w-3.5 text-blue-600" />
+                                    Live market signals
+                                </span>
+                            </div>
+
+                            <p className="mt-4 text-xs text-gray-500">
+                                Try the live deck — it&apos;s a sandbox, no account needed to swipe.
+                            </p>
                         </div>
 
-                        <div className="mt-8 flex flex-wrap items-center gap-3">
-                            <span className="marketing-pill">
-                                <Zap className="h-3.5 w-3.5 text-yellow-500" />
-                                Real-time quotes
-                            </span>
-                            <span className="marketing-pill">
-                                <Brain className="h-3.5 w-3.5 text-teal-400" />
-                                Sentiment AI
-                            </span>
-                            <span className="marketing-pill">
-                                <Link2 className="h-3.5 w-3.5 text-orange-500" />
-                                Brokerage sync
-                            </span>
-                            <span className="marketing-pill">
-                                <Mail className="h-3.5 w-3.5 text-blue-600" />
-                                Smart alerts
-                            </span>
-                        </div>
-                    </div>
-
-                    {/* Dashboard preview */}
-                    <div className="mt-14 md:mt-20 relative">
-                        <div className="mx-auto max-w-5xl rounded-2xl border border-gray-800 bg-gray-800/40 p-3 shadow-2xl backdrop-blur">
-                            <Image
-                                src="/assets/images/dashboard.png"
-                                alt="Signalist dashboard preview"
-                                width={1920}
-                                height={1080}
-                                className="w-full h-auto rounded-xl"
-                                priority
+                        <div className="relative">
+                            <div
+                                className="pointer-events-none absolute inset-x-4 top-10 h-64 rounded-full bg-yellow-500/10 blur-3xl"
+                                aria-hidden
                             />
+                            <SignalDeck />
                         </div>
                     </div>
                 </div>
@@ -336,17 +347,20 @@ export default async function HomePage() {
                 </div>
             </section>
 
+            {/* Connect & enable trading */}
+            <ConnectBroker ctaHref={ctaHref} ctaLabel={ctaLabel} />
+
             {/* CTA */}
             <section className="marketing-section">
                 <div className="relative overflow-hidden rounded-3xl border border-gray-800 bg-gradient-to-br from-gray-800/60 to-gray-900 p-10 md:p-16 text-center">
                     <div className="marketing-hero-glow" aria-hidden />
                     <TrendingUp className="mx-auto h-10 w-10 text-yellow-500" />
                     <h2 className="mt-5 text-3xl md:text-4xl font-bold text-gray-100 tracking-tight">
-                        Start trading smarter with AI.
+                        Swipe your first trade today.
                     </h2>
                     <p className="mt-3 text-base md:text-lg text-gray-400 max-w-xl mx-auto">
-                        Join Signalist for free, connect your brokerages, and turn market noise into
-                        clear, actionable insight powered by sentiment AI.
+                        Join Signalist for free, swipe through AI-ranked ideas, and connect your
+                        brokerage when you&apos;re ready to trade.
                     </p>
                     <div className="mt-7 flex flex-col sm:flex-row items-center justify-center gap-3">
                         <Link href={ctaHref} className="marketing-cta">
