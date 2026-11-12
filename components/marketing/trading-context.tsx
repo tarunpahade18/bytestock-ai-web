@@ -117,7 +117,7 @@ export function TradingProvider({ children }: { children: React.ReactNode }) {
                             },
                         },
                         fills: [
-                            { id: uid(), symbol: signal.symbol, qty, price: signal.price, side: "buy" },
+                            { id: uid(), symbol: signal.symbol, qty, price: signal.price, side: "buy" as const },
                             ...prev.fills,
                         ].slice(0, 8),
                     };

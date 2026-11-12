@@ -2,20 +2,12 @@ import Link from "next/link";
 import {
     ArrowLeftRight,
     ArrowRight,
-    BarChart3,
-    Bell,
     Brain,
     ChevronRight,
     Compass,
-    FileSearch,
-    Globe2,
-    LineChart,
     Link2,
-    Newspaper,
-    PieChart,
     Sparkles,
     Star,
-    Target,
     TrendingUp,
     Wallet,
     Zap,
@@ -23,75 +15,6 @@ import {
 import { auth } from "@/lib/auth/server";
 import { SignalDeck } from "@/components/marketing/signal-deck";
 import { ConnectBroker } from "@/components/marketing/connect-broker";
-
-const FEATURES = [
-    {
-        icon: ArrowLeftRight,
-        title: "Swipe-to-trade signals",
-        description:
-            "AI surfaces a ranked buy idea. Like the thesis? Swipe right to buy. Not convinced? Swipe left to skip and move to the next signal.",
-    },
-    {
-        icon: LineChart,
-        title: "Real-time market data",
-        description:
-            "Stream live quotes for thousands of stocks, ETFs, and indices with millisecond-level precision so you never miss a move.",
-    },
-    {
-        icon: Link2,
-        title: "Brokerage account integration",
-        description:
-            "Connect multiple brokerage accounts to track all your investments, trades, and portfolio performance in a single unified dashboard.",
-    },
-    {
-        icon: Brain,
-        title: "Sentiment AI analysis",
-        description:
-            "News-driven sentiment scoring and AI-powered analysis help you understand the narratives behind every price movement.",
-    },
-    {
-        icon: Sparkles,
-        title: "AI investment recommendations",
-        description:
-            "Ask anything in plain English. Get streaming, citation-backed insights on fundamentals, sentiment, and technicals — not financial advice, but powerful research.",
-    },
-    {
-        icon: Bell,
-        title: "Smart price alerts",
-        description:
-            "Set upper or lower price thresholds and let Signalist watch your watchlist so you can react the moment conditions are met.",
-    },
-    {
-        icon: Newspaper,
-        title: "News-based trading insights",
-        description:
-            "Personalized news digests powered by your watchlist and AI sentiment analysis, delivered the moment stories break.",
-    },
-    {
-        icon: PieChart,
-        title: "Valuations & portfolio tracking",
-        description:
-            "Track holdings, visualize performance across sectors, and monitor valuations — all across your connected brokerage accounts.",
-    },
-    {
-        icon: FileSearch,
-        title: "Deep company analysis",
-        description:
-            "Profiles, financials, technicals, and competitive context for every ticker — all in one beautifully organized view.",
-    },
-    {
-        icon: Target,
-        title: "Strategy lab & backtests",
-        description:
-            "Explore battle-tested trading strategies, tweak parameters, and see historical performance in seconds.",
-    },
-    {
-        icon: Globe2,
-        title: "Prediction markets",
-        description:
-            "Aggregate Polymarket and Kalshi alongside traditional markets to spot where consensus is forming before consensus does.",
-    },
-];
 
 const STEPS = [
     {
@@ -177,27 +100,27 @@ export default async function HomePage() {
                 <div className="marketing-hero-glow" aria-hidden />
                 <div className="marketing-hero-glow-teal" aria-hidden />
 
-                <div className="container relative pt-16 pb-20 md:pt-24 md:pb-28">
-                    <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
+                <div className="container relative pt-20 pb-28 md:pt-28 md:pb-44">
+                    <div className="grid items-center gap-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
                         <div className="max-w-2xl">
                             <span className="marketing-eyebrow">
                                 <Sparkles className="h-3.5 w-3.5" />
                                 Swipe signals · now in public beta
                             </span>
-                            <h1 className="mt-5 text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-100">
+                            <h1 className="mt-6 text-[2.75rem] leading-[1.04] sm:text-6xl md:text-7xl font-bold tracking-[-0.035em] text-gray-100">
                                 Like the idea?{" "}
-                                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+                                <span className="font-display font-normal italic tracking-[-0.01em] bg-gradient-to-r from-yellow-300 via-yellow-400 to-orange-500 bg-clip-text text-transparent">
                                     Swipe right to buy.
                                 </span>
                             </h1>
-                            <p className="mt-5 text-base md:text-lg text-gray-400 max-w-2xl">
+                            <p className="mt-6 max-w-xl text-lg md:text-xl leading-relaxed text-gray-400">
                                 Signalist turns AI research into a deck of trade ideas. NVIDIA riding
                                 the AI boom? Swipe right to buy the signal. Not your thesis? Swipe
                                 left to skip. Connect your brokerage at the bottom and your right
                                 swipes become real orders.
                             </p>
 
-                            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+                            <div className="mt-9 flex flex-col sm:flex-row gap-3">
                                 <Link href={ctaHref} className="marketing-cta">
                                     {ctaLabel}
                                     <ArrowRight className="h-4 w-4" />
@@ -208,7 +131,7 @@ export default async function HomePage() {
                                 </Link>
                             </div>
 
-                            <div className="mt-8 flex flex-wrap items-center gap-3">
+                            <div className="mt-9 flex flex-wrap items-center gap-2.5">
                                 <span className="marketing-pill">
                                     <ArrowLeftRight className="h-3.5 w-3.5 text-yellow-500" />
                                     Right to buy · left to skip
@@ -227,12 +150,12 @@ export default async function HomePage() {
                                 </span>
                             </div>
 
-                            <p className="mt-4 text-xs text-gray-500">
+                            <p className="mt-5 text-xs tracking-wide text-gray-500">
                                 Try the live deck — it&apos;s a sandbox, no account needed to swipe.
                             </p>
                         </div>
 
-                        <div className="relative">
+                        <div className="relative lg:pl-4">
                             <div
                                 className="pointer-events-none absolute inset-x-4 top-10 h-64 rounded-full bg-yellow-500/10 blur-3xl"
                                 aria-hidden
@@ -245,40 +168,11 @@ export default async function HomePage() {
 
             {/* Stats */}
             <section className="border-y border-gray-800 bg-gray-900/40">
-                <div className="container py-10 grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div className="container py-12 md:py-14 grid grid-cols-2 md:grid-cols-4 gap-5">
                     {STATS.map((s) => (
                         <div key={s.label} className="marketing-stat">
                             <div className="marketing-stat-value">{s.value}</div>
                             <div className="marketing-stat-label">{s.label}</div>
-                        </div>
-                    ))}
-                </div>
-            </section>
-
-            {/* Features */}
-            <section id="features" className="marketing-section">
-                <div className="text-center max-w-2xl mx-auto">
-                    <span className="marketing-eyebrow">
-                        <BarChart3 className="h-3.5 w-3.5" />
-                        Everything you need
-                    </span>
-                    <h2 className="mt-4 marketing-section-title">
-                        Built for investors who want signal, not noise.
-                    </h2>
-                    <p className="marketing-section-subtitle mx-auto">
-                        From the first quote of the day to the close, Signalist keeps you informed,
-                        organized, and a step ahead with brokerage sync, sentiment AI, and smart alerts.
-                    </p>
-                </div>
-
-                <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-                    {FEATURES.map(({ icon: Icon, title, description }) => (
-                        <div key={title} className="marketing-feature-card group">
-                            <div className="marketing-feature-icon">
-                                <Icon className="h-6 w-6" />
-                            </div>
-                            <h3 className="marketing-feature-title">{title}</h3>
-                            <p className="marketing-feature-desc">{description}</p>
                         </div>
                     ))}
                 </div>
@@ -294,7 +188,7 @@ export default async function HomePage() {
                         <Compass className="h-3.5 w-3.5" />
                         How it works
                     </span>
-                    <h2 className="mt-4 marketing-section-title">
+                    <h2 className="mt-5 marketing-section-title">
                         From sign-up to your first smart alert in minutes.
                     </h2>
                     <p className="marketing-section-subtitle">
@@ -303,7 +197,7 @@ export default async function HomePage() {
                     </p>
                 </div>
 
-                <div className="mt-10 grid gap-5 md:grid-cols-2">
+                <div className="mt-12 grid gap-6 md:grid-cols-2">
                     {STEPS.map((step, idx) => (
                         <div key={step.title} className="marketing-step">
                             <div className="marketing-step-num">{idx + 1}</div>
@@ -323,10 +217,10 @@ export default async function HomePage() {
                         <Star className="h-3.5 w-3.5" />
                         Loved by investors
                     </span>
-                    <h2 className="mt-4 marketing-section-title">Trusted by thousands of traders.</h2>
+                    <h2 className="mt-5 marketing-section-title">Trusted by thousands of traders.</h2>
                 </div>
 
-                <div className="mt-12 grid gap-5 md:grid-cols-3">
+                <div className="mt-14 grid gap-6 md:grid-cols-3">
                     {TESTIMONIALS.map((t) => (
                         <div
                             key={t.author}
@@ -381,13 +275,13 @@ export default async function HomePage() {
                         <Wallet className="h-3.5 w-3.5" />
                         FAQ
                     </span>
-                    <h2 className="mt-4 marketing-section-title">Frequently asked questions</h2>
+                    <h2 className="mt-5 marketing-section-title">Frequently asked questions</h2>
                     <p className="marketing-section-subtitle mx-auto">
                         Everything you need to know before getting started.
                     </p>
                 </div>
 
-                <div className="mt-10 max-w-3xl mx-auto grid gap-4 md:grid-cols-2">
+                <div className="mt-12 max-w-3xl mx-auto grid gap-5 md:grid-cols-2">
                     {FAQS.map((f) => (
                         <div key={f.q} className="marketing-faq">
                             <p className="marketing-faq-q">{f.q}</p>

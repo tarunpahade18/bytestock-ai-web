@@ -298,8 +298,8 @@ export function SignalDeck() {
     };
 
     return (
-        <div id="signals" className="relative mx-auto w-full max-w-sm scroll-mt-24">
-            <div className="mb-4 flex items-center justify-between gap-3">
+        <div id="signals" className="relative mx-auto w-full max-w-[400px] scroll-mt-24">
+            <div className="mb-5 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wider text-gray-500">
                     <span className="relative flex h-2 w-2">
                         <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-teal-400 opacity-75" />
@@ -360,7 +360,7 @@ export function SignalDeck() {
                             opacity: exiting ? 0 : 1,
                             touchAction: "none",
                         }}
-                        className="relative z-10 cursor-grab select-none rounded-3xl border border-gray-700 bg-gradient-to-b from-gray-800 via-gray-800 to-gray-900 p-6 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] active:cursor-grabbing"
+                        className="relative z-10 cursor-grab select-none rounded-[28px] border border-gray-700 bg-gradient-to-b from-gray-800 via-gray-800 to-gray-900 p-7 shadow-[0_30px_80px_-20px_rgba(0,0,0,0.8)] active:cursor-grabbing"
                     >
                         <div
                             className="pointer-events-none absolute left-5 top-5 -rotate-12 rounded-lg border-2 border-teal-400 px-3 py-1 text-sm font-black uppercase tracking-wider text-teal-400"
@@ -386,7 +386,7 @@ export function SignalDeck() {
                                 </div>
                             </div>
                             <div className="text-right">
-                                <p className="text-lg font-semibold text-gray-100">
+                                <p className="text-xl font-semibold tracking-[-0.01em] text-gray-100">
                                     ${active.price.toFixed(2)}
                                 </p>
                                 <p
@@ -401,17 +401,17 @@ export function SignalDeck() {
                             </div>
                         </div>
 
-                        <div className="mt-5 inline-flex w-fit items-center gap-1.5 rounded-full border border-yellow-500/25 bg-yellow-500/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-yellow-500">
+                        <div className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-yellow-500/25 bg-yellow-500/10 px-2.5 py-1 text-[11px] font-semibold uppercase tracking-wider text-yellow-500">
                             <Sparkles className="h-3 w-3" />
                             {active.stance}
                         </div>
 
-                        <h3 className="mt-3 text-2xl font-bold leading-tight text-gray-100">
+                        <h3 className="mt-3.5 text-[26px] font-bold leading-[1.15] tracking-[-0.02em] text-gray-100">
                             {active.headline}
                         </h3>
-                        <p className="mt-2 text-sm leading-relaxed text-gray-400">{active.thesis}</p>
+                        <p className="mt-2.5 text-[13.5px] leading-6 text-gray-400">{active.thesis}</p>
 
-                        <div className="mt-4">
+                        <div className="mt-5">
                             <Sparkline
                                 symbol={active.symbol}
                                 series={active.series}
@@ -419,7 +419,7 @@ export function SignalDeck() {
                             />
                         </div>
 
-                        <ul className="mt-4 space-y-1.5">
+                        <ul className="mt-5 space-y-2">
                             {active.catalysts.map((catalyst) => (
                                 <li key={catalyst} className="flex items-start gap-2 text-xs text-gray-400">
                                     <Check className="mt-0.5 h-3.5 w-3.5 shrink-0 text-teal-400" />
@@ -428,7 +428,7 @@ export function SignalDeck() {
                             ))}
                         </ul>
 
-                        <div className="mt-5">
+                        <div className="mt-6">
                             <div className="flex items-center justify-between text-[11px] uppercase tracking-wider text-gray-500">
                                 <span>AI confidence</span>
                                 <span className="font-semibold text-gray-300">{active.confidence}%</span>
@@ -479,7 +479,7 @@ export function SignalDeck() {
                 )}
             </div>
 
-            <div className="mt-5 flex items-center justify-center gap-5">
+            <div className="mt-6 flex items-center justify-center gap-6">
                 <button
                     type="button"
                     onClick={() => commit("left")}
@@ -506,7 +506,7 @@ export function SignalDeck() {
                 </button>
             </div>
 
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-800/40 px-4 py-3 text-xs">
+            <div className="mt-5 flex items-center justify-between gap-3 rounded-xl border border-gray-800 bg-gray-800/40 px-4 py-3.5 text-xs">
                 {canTrade ? (
                     <>
                         <span className="flex items-center gap-2 text-gray-400">

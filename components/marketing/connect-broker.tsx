@@ -111,7 +111,7 @@ export function ConnectBroker({
             id="connect"
             className="marketing-section scroll-mt-20 border-y border-gray-800 !bg-gray-900/40"
         >
-            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+            <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
                 <div>
                     <span className="marketing-eyebrow">
                         <Wallet className="h-3.5 w-3.5" />
@@ -126,7 +126,7 @@ export function ConnectBroker({
                         moves on.
                     </p>
 
-                    <ul className="mt-8 space-y-4">
+                    <ul className="mt-9 space-y-5">
                         {steps.map((step, index) => (
                             <li key={step.title} className="flex gap-4">
                                 <div
@@ -155,7 +155,7 @@ export function ConnectBroker({
                     )}
                 </div>
 
-                <div className="rounded-3xl border border-gray-800 bg-gray-800/40 p-6 shadow-2xl">
+                <div className="rounded-[28px] border border-gray-800 bg-gray-800/40 p-7 shadow-2xl">
                     <div className="flex items-start justify-between gap-4">
                         <div>
                             <p className="text-base font-semibold text-gray-100">Brokerage connection</p>
@@ -177,11 +177,11 @@ export function ConnectBroker({
                     </div>
 
                     {!connected ? (
-                        <div className="mt-5 space-y-3">
+                        <div className="mt-6 space-y-3">
                             {BROKERS.map((item) => (
                                 <div
                                     key={item.name}
-                                    className="flex items-center justify-between gap-3 rounded-xl border border-gray-700 bg-gray-800/60 p-4"
+                                    className="flex items-center justify-between gap-3 rounded-xl border border-gray-700 bg-gray-800/60 p-5"
                                 >
                                     <div className="flex items-center gap-3">
                                         <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-700 text-gray-300">
@@ -212,7 +212,7 @@ export function ConnectBroker({
                             </p>
                         </div>
                     ) : (
-                        <div className="mt-5 space-y-4">
+                        <div className="mt-6 space-y-4">
                             <div className="flex items-center justify-between gap-3 rounded-xl border border-teal-400/20 bg-teal-400/5 p-4">
                                 <div className="flex items-center gap-3">
                                     <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-400/10 text-teal-400">
@@ -235,8 +235,8 @@ export function ConnectBroker({
                                 </button>
                             </div>
 
-                            <div className="grid grid-cols-2 gap-3">
-                                <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-4">
+                            <div className="grid grid-cols-2 gap-4">
+                                <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-5">
                                     <p className="text-[10px] uppercase tracking-wider text-gray-500">
                                         Buying power
                                     </p>
@@ -244,7 +244,7 @@ export function ConnectBroker({
                                         ${cash.toFixed(2)}
                                     </p>
                                 </div>
-                                <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-4">
+                                <div className="rounded-xl border border-gray-700 bg-gray-800/60 p-5">
                                     <p className="text-[10px] uppercase tracking-wider text-gray-500">
                                         Positions
                                     </p>
@@ -254,7 +254,7 @@ export function ConnectBroker({
                                 </div>
                             </div>
 
-                            <div className="flex items-center justify-between gap-4 rounded-xl border border-gray-700 bg-gray-800/60 p-4">
+                            <div className="flex items-center justify-between gap-4 rounded-xl border border-gray-700 bg-gray-800/60 p-5">
                                 <div className="flex items-start gap-2">
                                     {tradingEnabled ? (
                                         <Zap className="mt-0.5 h-4 w-4 shrink-0 text-teal-400" />
