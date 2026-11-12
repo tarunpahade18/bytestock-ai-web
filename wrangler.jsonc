@@ -1,0 +1,29 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "bytestock-ai-web",
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-03-25",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "bytestock-ai-web"
+    }
+  ],
+  "r2_buckets": [
+    {
+      "binding": "NEXT_INC_CACHE_R2_BUCKET",
+      "bucket_name": "bytestock-ai-opennext-cache"
+    }
+  ],
+  "images": {
+    "binding": "IMAGES"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
