@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const PUBLIC_PATHS = ['/', '/support', '/privacy', '/terms', '/sign-in', '/sign-up', '/api/webhooks'];
+const PUBLIC_PATHS = ['/', '/support', '/privacy', '/terms'];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
@@ -12,12 +12,6 @@ export function middleware(request: NextRequest) {
   const token = request.cookies.get('bytestock_token')?.value;
 
   if (!isPublic && !token) {
-    const url = request.nextUrl.clone();
-    url.pathname = '/sign-in';
-    return NextResponse.redirect(url);
-  }
-
-  if (isPublic && token && (pathname.startsWith('/sign-in') || pathname.startsWith('/sign-up'))) {
     const url = request.nextUrl.clone();
     url.pathname = '/';
     return NextResponse.redirect(url);

@@ -5,6 +5,11 @@ export const NAV_ITEMS = [
     { href: '/prediction-markets', label: 'Prediction Markets' },
 ];
 
+// Marketing → product app. Set NEXT_PUBLIC_APP_URL to your product app URL.
+export const PRODUCT_APP_URL = process.env.NEXT_PUBLIC_APP_URL?.trim() || null;
+export const PRODUCT_APP_HREF = PRODUCT_APP_URL ?? '/#signals';
+export const PRODUCT_APP_LABEL = PRODUCT_APP_URL ? 'Open the app' : 'Try the live demo';
+
 // Sign-up form select options
 export const INVESTMENT_GOALS = [
     { value: 'Growth', label: 'Growth' },

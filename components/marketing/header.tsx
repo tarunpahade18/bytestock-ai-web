@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import { PRODUCT_APP_HREF, PRODUCT_APP_LABEL } from "@/lib/constants";
 
 const NAV_LINKS = [
     { href: "/", label: "Home" },
@@ -12,7 +13,7 @@ const NAV_LINKS = [
     { href: "/#faq", label: "FAQ" },
 ];
 
-export const MarketingHeader = ({ isAuthenticated }: { isAuthenticated: boolean }) => {
+export const MarketingHeader = () => {
     const pathname = usePathname();
 
     const isActive = (href: string) => {
@@ -58,23 +59,9 @@ export const MarketingHeader = ({ isAuthenticated }: { isAuthenticated: boolean 
                 </nav>
 
                 <div className="flex items-center gap-2">
-                    {isAuthenticated ? (
-                        <Link href="/dashboard" className="marketing-cta !h-10 !px-4 !text-sm">
-                            Open dashboard
-                        </Link>
-                    ) : (
-                        <>
-                            <Link
-                                href="/sign-in"
-                                className="hidden sm:inline-flex h-10 items-center px-3 text-sm font-medium text-gray-400 hover:text-yellow-500 transition-colors"
-                            >
-                                Sign in
-                            </Link>
-                            <Link href="/sign-up" className="marketing-cta !h-10 !px-4 !text-sm">
-                                Get started
-                            </Link>
-                        </>
-                    )}
+                    <Link href={PRODUCT_APP_HREF} className="marketing-cta !h-10 !px-4 !text-sm">
+                        {PRODUCT_APP_LABEL}
+                    </Link>
                 </div>
             </div>
         </header>

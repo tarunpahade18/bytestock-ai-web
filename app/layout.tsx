@@ -4,7 +4,7 @@ import { Toaster } from "@/components/ui/sonner"
 import { TooltipProvider } from "@/components/ui/tooltip"
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
-import { Providers } from "@/lib/clerk/provider"
+import { AuthProvider } from "@/lib/auth/context"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -41,12 +41,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
       >
-        <Providers>
+        <AuthProvider>
           <TooltipProvider>
             {children}
             <Toaster />
           </TooltipProvider>
-        </Providers>
+        </AuthProvider>
       </body>
     </html>
   );

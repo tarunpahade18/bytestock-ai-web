@@ -89,7 +89,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const logout = async () => {
     document.cookie = 'bytestock_token=; path=/; max-age=0';
     setUser(null);
-    router.push('/sign-in');
+    router.push('/');
   };
 
   return (

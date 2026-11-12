@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 const Layout = async ({ children }: { children : React.ReactNode }) => {
     const { userId } = await auth();
 
-    if(!userId) redirect('/sign-in');
+    if(!userId) redirect('/');
 
     return (
         <main className="min-h-screen text-gray-400">

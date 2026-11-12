@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { TrendingUp } from "lucide-react";
+import { PRODUCT_APP_HREF, PRODUCT_APP_LABEL } from "@/lib/constants";
 
 const PRODUCT_LINKS = [
     { href: "/dashboard", label: "Dashboard" },
@@ -71,9 +72,9 @@ export const MarketingFooter = () => {
                     <p className="text-sm text-gray-500 mb-3">
                         Get curated market news and AI insights delivered to your inbox.
                     </p>
-                    <Link href="/sign-up" className="inline-flex items-center gap-2 text-sm font-medium text-yellow-500 hover:text-yellow-400">
+                    <Link href={PRODUCT_APP_HREF} className="inline-flex items-center gap-2 text-sm font-medium text-yellow-500 hover:text-yellow-400">
                         <TrendingUp className="h-4 w-4" />
-                        Create a free account
+                        {PRODUCT_APP_LABEL}
                     </Link>
                 </div>
             </div>

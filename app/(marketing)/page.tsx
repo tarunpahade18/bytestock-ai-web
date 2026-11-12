@@ -12,7 +12,7 @@ import {
     Wallet,
     Zap,
 } from "lucide-react";
-import { auth } from "@/lib/auth/server";
+import { PRODUCT_APP_HREF, PRODUCT_APP_LABEL } from "@/lib/constants";
 import { SignalDeck } from "@/components/marketing/signal-deck";
 import { ConnectBroker } from "@/components/marketing/connect-broker";
 
@@ -87,10 +87,9 @@ const FAQS = [
     },
 ];
 
-export default async function HomePage() {
-    const { userId } = await auth();
-    const ctaHref = userId ? "/dashboard" : "/sign-up";
-    const ctaLabel = userId ? "Open dashboard" : "Get started — it's free";
+export default function HomePage() {
+    const ctaHref = PRODUCT_APP_HREF;
+    const ctaLabel = PRODUCT_APP_LABEL;
 
     return (
         <main>
